@@ -4,34 +4,75 @@
 <link rel="icon" href="media/f_000045.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
 <!--Done!-->
+<!--Example Code for a Music Addition (Utils)-->
+<!--
+    <button class="musicButton" onclick="showSong();"><h3>%SONGNAME</h3>
+        <music id="SONGID" style="display: none;">
+            <p>Artist: %ARTIST <br>Source: <a href="SONGLINK" style="color: red/blue/white">SOURCESITE</a></p>
+            <audio controls>
+                <source src="media/SONG.mp3">
+            </audio>
+        </music>
+    </button>
+-->
 <html>
 <body>
     <div>
         <h1>kayla.moe</h1>
         <p>music page!</p>
         <h3>this contains some cool music I like a lot. I hope you enjoy it!</h3>
-        <button class="musicButton" onclick="showMusic();"><h2>Greetings</h2>
-            <div id="greetings" style="display: none;">
-                <figure id="audioplayer" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
-                    <figcaption>
-                    <div>Track<span itemprop="name">Greetings</span></div>
-                    <div id="album">Album<span itemprop="inAlbum">Morning</span></div>
-                    <div id="artist">Artist<span itemprop="byArtist">PilotRedSun</span></div>
-                    <div id="time">Time<span id="playbacktime">00:00</span></div>
-                    </figcaption>
-                    <meta itemprop="duration" content="PT2M29S">
-                    <div id="fader"></div>
-                    <div id="playback"></div>
-                    <audio controls src="media/greetings.mp3" id="audiotrack" preload="auto" itemprop="audio"></audio>
-                    </figure>
-            </div>
+        <a href="index.html" style="color:antiquewhite"><p>go back</p></a>
+        <!--Greetings - PilotRedSun-->
+        <button class="musicButton" onclick="showGreetings();"><h3>Greetings</h3>
+            <music id="player" style="display: none;">
+                <p>Artist: PilotRedSun <br>Source: <a href="https://youtu.be/1pWbt50HjMs" style="color: red">youtube</a></p>
+                <audio controls>
+                    <source src="media/greetings.mp3">
+                </audio>
+            </music>
+        </button>
+        <!--Quatre Mains - Shiro Sagisu-->
+        <button class="musicButton" onclick="showQuatre();"><h3>Quatre Mains</h3>
+        <music id="quatre" style="display: none;">
+        <p>Artist: Shiro Sagisu <br>Source: <a href="https://youtu.be/_P4saspw8pw" style="color: red;">youtube</a></p>
+        <audio controls>
+            <source src="media/quatre.mp3">
+        </audio>
+        </music>
+        </button>
+         <!--NTR Due to Cardiac Arrest - Sewerslvt-->
+        <button class="musicButton" onclick="showNtr();"><h3>NTR Ending</h3>
+        <music id="ntr" style="display: none;">
+            <p>Artist: Sewerslvt <br>Source: <a href="https://youtu.be/095lTUpeScQ" style="color: red;">youtube</a></p>
+            <audio controls>
+                <source src="media/ntr.mp3">
+            </audio>
+        </music>
+        </button>
+        <!--Howler Tone - DST-->
+        <button class="musicButton" onclick="showHowl();"><h3>Howler Tone</h3>
+            <music id="howl" style="display: none;">
+                <p>Artist: DST <br>Source: <a href="https://soundcloud.com/dst-810796448/howler-tone" style="color: orange">soundcloud</a></p>
+                <audio controls>
+                    <source src="media/howler.mp3">
+                </audio>
+            </music>
+        </button>
+        <!--Tsubasa wo Kudasai-->
+        <button class="musicButton" onclick="showTsub();"><h3>Tsubasa wo Kudasai</h3>
+            <music id="tsub" style="display: none;">
+                <audio controls>
+                    <source src="media/tsubasa.mp3">
+                </audio>
+            </music>
         </button>
     </div>
 </body>
 </html>
 <script>
-    function showMusic() {
-        var x = document.getElementById("greetings");
+    /* @EXAMPLE
+    function showSong() {
+        var x = document.getElementById("id");
         if(x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -39,86 +80,51 @@
         }
     }
 
-    function player() {
-  if (audioTrack.paused) {
-	setText(this, "Pause");
-	audioTrack.play();
-	} else {
-	setText(this,"Play");
-	audioTrack.pause();	
-	}
-}
+    */
 
-function setText(el,text) {
-	el.innerHTML = text;
-}
+    function showTsub() {
+        var x = document.getElementById("tsub");
+        if(x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-function finish() {
-		audioTrack.currentTime = 0;
-		setText(playButton,"Play");
-}
+    function showGreetings() {
+        var x = document.getElementById("player");
+        if(x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-function updatePlayhead() { 
-	playhead.value = audioTrack.currentTime;
-	var s = parseInt(audioTrack.currentTime % 60);
-    var m = parseInt((audioTrack.currentTime / 60) % 60);
-    s = (s >= 10) ? s : "0" + s;
-    m = (m >= 10) ? m : "0" + m;
-    playbacktime.innerHTML = m + ':' + s ;
-    
-}
+    function showQuatre() {
+        var x = document.getElementById("quatre");
+        if(x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-function volumizer() {
-	if (audioTrack.volume == 0) { setText(muteButton,"volume"); }
-	else { setText(muteButton,"volumehigh"); }
-}
+    function showNtr() {
+        var x = document.getElementById("ntr");
+        if(x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
-function muter() {
-	if (audioTrack.volume == 0) {
-		audioTrack.volume = restoreValue;
-		volumeSlider.value = restoreValue;
-	} else {
-		audioTrack.volume = 0;
-		restoreValue = volumeSlider.value;
-		volumeSlider.value = 0;
-	}
-}
-
-function setAttributes(el, attrs) {
-	for(var key in attrs){
-		el.setAttribute(key, attrs[key]);
-	}
-}
-
-var audioPlayer = document.getElementById("audioplayer"),
-fader = document.getElementById("fader"),
-playback = document.getElementById("playback"),
-audioTrack = document.getElementById("audiotrack"),
-playbackTime = document.getElementById("playbacktime"),
-playButton = document.createElement("button"),
-muteButton = document.createElement("button"),
-playhead = document.createElement("progress")
-volumeSlider = document.createElement("input");
-setText(playButton, "Play");
-setText(muteButton, "volumehigh");
-setAttributes(playButton, { "type": "button", "class": "ss-icon" });
-setAttributes(muteButton, { "type": "button", "class": "ss-icon" });
-muteButton.style.display = "block";
-muteButton.style.margin = "0 auto";
-setAttributes(volumeSlider, { "type": "range", "min": "0", "max": "1", "step": "any", "value": "1", "orient": "vertical", "id": "volumeSlider" });
-var duration = audioTrack.duration;
-setAttributes(playhead, { "min": "0", "max": "100", "value": "0", "id": "playhead" });
-fader.appendChild(volumeSlider);
-fader.appendChild(muteButton);
-playback.appendChild(playButton);
-playback.appendChild(playhead);
-audioTrack.removeAttribute("controls");
-playButton.addEventListener("click", player, false);
-muteButton.addEventListener("click", muter, false);
-volumeSlider.addEventListener("input", function(){ audioTrack.volume = volumeSlider.value; }, false);
-audioTrack.addEventListener('volumechange', volumizer, false);
-audioTrack.addEventListener('playing', function(){ playhead.max = audioTrack.duration; }, false);
-audioTrack.addEventListener('timeupdate', updatePlayhead, false);
-audioTrack.addEventListener('ended', finish, false);
+    function showHowl() {
+        var x = document.getElementById("howl");
+        if(x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 </script>
 
